@@ -1,8 +1,21 @@
-import productsData from "../server/data.json";
-
 const STORAGE_CUSTOMERS = "stationaryNookCustomers";
 const STORAGE_ORDERS = "stationaryNookOrders";
 const OWNER_EMAILS = ["owner@stationary.com", "admin@stationary.com"];
+
+const defaultProducts = [
+  { id: "notebook", name: "Spiral Notebook", description: "200 pages of smooth paper for school notes.", price: 120 },
+  { id: "pen-set", name: "Gel Pen Pack", description: "Set of 10 pens with bright ink colors.", price: 220 },
+  { id: "marker", name: "Highlighter Set", description: "Four neon highlighters for easy studying.", price: 160 },
+  { id: "folder", name: "Document Folder", description: "Keep your handouts neat and ready for class.", price: 80 },
+  { id: "pencil-case", name: "Pencil Case", description: "A durable pouch for pens, pencils and erasers.", price: 140 },
+  { id: "sticky-notes", name: "Sticky Notes", description: "Perfect for quick reminders and bookmarks.", price: 60 },
+  { id: "desk-organizer", name: "Desk Organizer", description: "Keep your study table tidy with compartments for every tool.", price: 360 },
+  { id: "journal", name: "Eco Journal", description: "Plant-based paper journal for notes, sketches, and study planning.", price: 180 },
+  { id: "pencil-pack", name: "Graphite Pencil Pack", description: "Set of 12 smooth writing pencils for everyday notes.", price: 110 },
+  { id: "ruler-set", name: "Ruler + Protractor Set", description: "Essential geometry tools for classes and projects.", price: 85 },
+  { id: "glue-stick", name: "Washable Glue Stick", description: "Clean and easy adhesive for school crafts and homework.", price: 70 },
+  { id: "tab-notes", name: "Sticky Tab Notes", description: "Colorful tabs for marking pages, reminders and study sections.", price: 90 },
+];
 
 const readStorage = (key, defaultValue) => {
   try {
@@ -22,11 +35,11 @@ const writeStorage = (key, value) => {
 };
 
 export const getProducts = () => {
-  return productsData.products || [];
+  return defaultProducts;
 };
 
 export const getCustomers = () => {
-  return readStorage(STORAGE_CUSTOMERS, productsData.customers || []);
+  return readStorage(STORAGE_CUSTOMERS, []);
 };
 
 export const getCustomerByEmail = (email) => {
