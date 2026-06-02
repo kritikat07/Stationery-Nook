@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+import { createCustomer, getCustomerByEmail } from "../utils/localDb";
 
 function Register() {
   const [name, setName] = useState("");
@@ -19,18 +18,12 @@ function Register() {
     }
     setLoading(true);
     try {
-      const resp = await fetch(`${API_BASE_URL}/api/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
-      });
-      const data = await resp.json();
-      if (!resp.ok) {
-        setError(data?.error || "Registration failed.");
+      if (getCustomerByEmail(email)) {
+        setError("A user with that email already exists.");
         setLoading(false);
         return;
       }
-      // Optionally store returned customer or show success
+      createCustomer({ name, email, password });
       navigate("/login");
     } catch (err) {
       setError(`Registration failed. ${err?.message || "Please try again."}`);

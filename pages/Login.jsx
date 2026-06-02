@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../components/UserContext";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+import { getCustomerByCredentials } from "../utils/localDb";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,19 +21,13 @@ function Login() {
 
     setLoading(true);
     try {
-      const resp = await fetch(`${API_BASE_URL}/api/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await resp.json();
-      if (!resp.ok) {
-        setError(data?.error || "Login failed.");
+      const customer = getCustomerByCredentials(email, password);
+      if (!customer) {
+        setError("Invalid email or password. Please try again.");
         setLoading(false);
         return;
       }
-      // Save user in context
-      login(data.customer);
+      login(customer);
       navigate("/");
     } catch (err) {
       setError(`Login failed. ${err?.message || "Please try again."}`);

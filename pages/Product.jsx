@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../components/CartContext";
-import productsData from "../server/data.json";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+import { getProducts } from "../utils/localDb";
 
 function Products() {
   const { addToCart } = useContext(CartContext);
@@ -15,19 +13,8 @@ function Products() {
   };
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/products`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Unable to load products");
-        return res.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setProducts(productsData.products);
-        setLoading(false);
-      });
+    setProducts(getProducts());
+    setLoading(false);
   }, []);
 
   if (loading) {

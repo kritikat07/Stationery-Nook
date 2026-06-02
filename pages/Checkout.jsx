@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../components/CartContext";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+import { createOrder } from "../utils/localDb";
 
 function Checkout() {
   const { cart, total, clearCart } = useContext(CartContext);
@@ -32,21 +31,12 @@ function Checkout() {
     setSubmitting(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/checkout`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          cart,
-          customer,
-          payment: { method: paymentMethod, ...payment },
-          documents: documents.map((file) => file.webkitRelativePath || file.name),
-        }),
+      const result = createOrder({
+        cart,
+        customer,
+        payment: { method: paymentMethod, ...payment },
+        documents: documents.map((file) => file.webkitRelativePath || file.name),
       });
-
-      const result = await response.json();
-      if (!response.ok) {
-        throw new Error(result.error || "Payment failed");
-      }
 
       clearCart();
       setStatus(result);
