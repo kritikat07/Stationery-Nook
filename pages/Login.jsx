@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../components/UserContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +22,7 @@ function Login() {
 
     setLoading(true);
     try {
-      const resp = await fetch("http://localhost:8080/api/login", {
+      const resp = await fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

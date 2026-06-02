@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../components/UserContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 export default function Customers() {
   const { user } = useContext(UserContext);
   const [customers, setCustomers] = useState([]);
@@ -17,7 +19,7 @@ export default function Customers() {
     async function load() {
       setError("");
       try {
-        const res = await fetch("http://localhost:8080/api/customers");
+        const res = await fetch(`${API_BASE_URL}/api/customers`);
         if (!res.ok) throw new Error("Failed to fetch customers");
         const data = await res.json();
         setCustomers(data || []);
