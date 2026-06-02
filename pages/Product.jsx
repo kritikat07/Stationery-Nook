@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../components/CartContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 function Products() {
   const { addToCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
@@ -12,7 +14,7 @@ function Products() {
   };
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch(`${API_BASE_URL}/api/products`)
       .then((res) => {
         if (!res.ok) throw new Error("Unable to load products");
         return res.json();

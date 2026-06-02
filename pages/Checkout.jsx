@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../components/CartContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+
 function Checkout() {
   const { cart, total, clearCart } = useContext(CartContext);
   const [customer, setCustomer] = useState({ name: "", email: "" });
@@ -30,7 +32,7 @@ function Checkout() {
     setSubmitting(true);
 
     try {
-      const response = await fetch("/api/checkout", {
+      const response = await fetch(`${API_BASE_URL}/api/checkout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
