@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../components/UserContext";
-import { getCustomerByCredentials } from "../utils/localDb";
+import API from "../utils/api";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -21,16 +21,15 @@ function Login() {
 
     setLoading(true);
     try {
-      const customer = getCustomerByCredentials(email, password);
-      if (!customer) {
-        setError("Invalid email or password. Please try again.");
-        setLoading(false);
-        return;
+      const response = await API.post("/login", { email, password });
+      const { token, customer } = response.data;
+      if (token) {
+        localStorage.setItem("token", token);
       }
       login(customer);
       navigate("/");
     } catch (err) {
-      setError(`Login failed. ${err?.message || "Please try again."}`);
+      setError(`Login failed. ${err.response?.data?.error || err.message}`);
     } finally {
       setLoading(false);
     }

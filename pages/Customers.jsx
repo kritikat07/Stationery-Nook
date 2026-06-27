@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../components/UserContext";
-import { getCustomers } from "../utils/localDb";
+import API from "../utils/api";
 
 export default function Customers() {
   const { user } = useContext(UserContext);
@@ -15,9 +15,15 @@ export default function Customers() {
       return;
     }
 
-    const data = getCustomers();
-    setCustomers(data || []);
-    setLoading(false);
+    API.get("/customers")
+      .then((response) => {
+        setCustomers(response.data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response?.data?.error || err.message);
+        setLoading(false);
+      });
   }, [user]);
 
   if (loading) return <div className="page-container">Loading customers...</div>;

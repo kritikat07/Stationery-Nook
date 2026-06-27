@@ -26,6 +26,7 @@ export function UserProvider({ children }) {
 
   function logout() {
     setUser(null);
+    localStorage.removeItem("token");
   }
 
   return (

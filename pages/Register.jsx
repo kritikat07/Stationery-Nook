@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { createCustomer, getCustomerByEmail } from "../utils/localDb";
+import API from "../utils/api";
 
 function Register() {
   const [name, setName] = useState("");
@@ -18,15 +18,10 @@ function Register() {
     }
     setLoading(true);
     try {
-      if (getCustomerByEmail(email)) {
-        setError("A user with that email already exists.");
-        setLoading(false);
-        return;
-      }
-      createCustomer({ name, email, password });
+      await API.post("/register", { name, email, password });
       navigate("/login");
     } catch (err) {
-      setError(`Registration failed. ${err?.message || "Please try again."}`);
+      setError(`Registration failed. ${err.response?.data?.error || err.message}`);
     } finally {
       setLoading(false);
     }

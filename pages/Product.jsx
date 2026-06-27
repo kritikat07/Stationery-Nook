@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../components/CartContext";
-import { getProducts } from "../utils/localDb";
+import API from "../utils/api";
 
 function Products() {
   const { addToCart } = useContext(CartContext);
@@ -13,8 +13,15 @@ function Products() {
   };
 
   useEffect(() => {
-    setProducts(getProducts());
-    setLoading(false);
+    API.get("/products")
+      .then((response) => {
+        setProducts(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(`Failed to load products: ${err.response?.data?.error || err.message}`);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) {

@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../components/CartContext";
-import { createOrder } from "../utils/localDb";
+import { UserContext } from "../components/UserContext";
+import API from "../utils/api";
 
 function Checkout() {
   const { cart, total, clearCart } = useContext(CartContext);
+  const { user } = useContext(UserContext);
   const [customer, setCustomer] = useState({ name: "", email: "" });
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [payment, setPayment] = useState({ cardNumber: "", expiry: "", cvv: "", upiId: "" });
@@ -12,6 +14,12 @@ function Checkout() {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setCustomer({ name: user.name || "", email: user.email || "" });
+    }
+  }, [user]);
 
   if (cart.length === 0 && !status) {
     return (
@@ -31,17 +39,15 @@ function Checkout() {
     setSubmitting(true);
 
     try {
-      const result = createOrder({
-        cart,
-        customer,
+      const response = await API.post("/checkout", {
+        cart: cart.map((item) => ({ id: item.id, quantity: item.quantity })),
         payment: { method: paymentMethod, ...payment },
-        documents: documents.map((file) => file.webkitRelativePath || file.name),
       });
 
       clearCart();
-      setStatus(result);
+      setStatus(response.data);
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data?.error || err.message);
     } finally {
       setSubmitting(false);
     }
