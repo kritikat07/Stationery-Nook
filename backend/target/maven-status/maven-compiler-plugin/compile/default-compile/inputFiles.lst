@@ -10,6 +10,7 @@ c:\stationaryNook\backend\src\main\java\com\stationerynook\repository\UserReposi
 c:\stationaryNook\backend\src\main\java\com\stationerynook\controller\ProductController.java
 c:\stationaryNook\backend\src\main\java\com\stationerynook\controller\CustomerController.java
 c:\stationaryNook\backend\src\main\java\com\stationerynook\controller\CheckoutController.java
+c:\stationaryNook\backend\src\main\java\com\stationerynook\controller\OrderController.java
 c:\stationaryNook\backend\src\main\java\com\stationerynook\repository\OrderItemRepository.java
 c:\stationaryNook\backend\src\main\java\com\stationerynook\security\JwtFilter.java
 c:\stationaryNook\backend\src\main\java\com\stationerynook\security\JwtUtils.java

@@ -9,6 +9,7 @@ com\stationerynook\controller\AuthController.class
 com\stationerynook\model\User.class
 com\stationerynook\controller\ProductController.class
 com\stationerynook\repository\OrderRepository.class
+com\stationerynook\controller\OrderController.class
 com\stationerynook\controller\AuthController$LoginRequest.class
 com\stationerynook\controller\CheckoutController.class
 com\stationerynook\security\JwtFilter.class

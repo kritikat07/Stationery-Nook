@@ -10,7 +10,6 @@ function Checkout() {
   const [customer, setCustomer] = useState({ name: "", email: "" });
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [payment, setPayment] = useState({ cardNumber: "", expiry: "", cvv: "", upiId: "" });
-  const [documents, setDocuments] = useState([]);
   const [status, setStatus] = useState(null);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -61,10 +60,6 @@ function Checkout() {
     setPayment((current) => ({ ...current, [field]: value }));
   };
 
-  const handleDocumentUpload = (event) => {
-    const files = Array.from(event.target.files || []);
-    setDocuments(files);
-  };
 
   if (status) {
     return (
@@ -128,31 +123,6 @@ function Checkout() {
             />
           </label>
 
-          <label>
-            Upload documents or folders for print service
-            <input
-              type="file"
-              multiple
-              webkitdirectory="true"
-              directory="true"
-              accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg"
-              onChange={handleDocumentUpload}
-              className="form-input"
-            />
-            <span className="upload-note">Select files or folders. Folder upload works in Chrome and supported browsers.</span>
-          </label>
-
-          {documents.length > 0 && (
-            <div className="upload-summary">
-              <p className="product-name">Selected files ({documents.length})</p>
-              <ul>
-                {documents.slice(0, 10).map((file, index) => (
-                  <li key={index}>{file.webkitRelativePath || file.name}</li>
-                ))}
-                {documents.length > 10 && <li>...and {documents.length - 10} more</li>}
-              </ul>
-            </div>
-          )}
 
           <div className="payment-methods">
             <label>
