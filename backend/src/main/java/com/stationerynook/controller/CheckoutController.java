@@ -59,7 +59,7 @@ public class CheckoutController {
             paymentDetails = cardNo.substring(cardNo.length() - 4);
         } else if ("upi".equalsIgnoreCase(payment.getMethod())) {
             String upiId = payment.getUpiId() != null ? payment.getUpiId().trim() : "";
-            if (upiId.isEmpty() || !upiId.matches("^[^\\s@]+@[A-Za-z0-9]+$")) {
+            if (upiId.isEmpty() || !upiId.matches("^[^\\s@]+@[A-Za-z0-9.-]+$")) {
                 return ResponseEntity.badRequest().body(Map.of("error", "Please enter a valid UPI ID."));
             }
             paymentDetails = upiId;
@@ -85,7 +85,17 @@ public class CheckoutController {
         for (CartItem item : request.getCart()) {
             Product product = productRepository.findById(item.getId()).orElse(null);
             if (product == null) {
-                return ResponseEntity.badRequest().body(Map.of("error", "Product not found: " + item.getId()));
+                if (item.getId() != null && item.getId().startsWith("print-order-")) {
+                    product = new Product(
+                            item.getId(),
+                            item.getName() != null ? item.getName() : "Print Service",
+                            "Custom document printing",
+                            item.getPrice() != null ? item.getPrice() : 50.0
+                    );
+                    productRepository.save(product);
+                } else {
+                    return ResponseEntity.badRequest().body(Map.of("error", "Product not found: " + item.getId()));
+                }
             }
             amount += product.getPrice() * item.getQuantity();
 
@@ -134,6 +144,8 @@ public class CheckoutController {
     public static class CartItem {
         private String id;
         private int quantity;
+        private Double price;
+        private String name;
 
         public String getId() {
             return id;
@@ -149,6 +161,22 @@ public class CheckoutController {
 
         public void setQuantity(int quantity) {
             this.quantity = quantity;
+        }
+
+        public Double getPrice() {
+            return price;
+        }
+
+        public void setPrice(Double price) {
+            this.price = price;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 

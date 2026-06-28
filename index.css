@@ -719,3 +719,893 @@ label {
   line-height: 1.6;
   margin: 0;
 }
+
+/* Ambient Glow Blobs */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  -webkit-filter: blur(120px);
+  opacity: 0.06;
+  z-index: -1;
+  pointer-events: none;
+  animation: floatGlow 12s infinite alternate ease-in-out;
+}
+
+.glow-blue {
+  width: 400px;
+  height: 400px;
+  background: #2563eb;
+  top: 10%;
+  left: -80px;
+}
+
+.glow-violet {
+  width: 500px;
+  height: 500px;
+  background: #7c3aed;
+  top: 45%;
+  right: -100px;
+  animation-delay: -4s;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(24px) scale(1.08);
+  }
+}
+
+/* Hero Info tags */
+.hero-info-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  flex-wrap: wrap;
+}
+
+.info-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #475569;
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.04);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.08);
+}
+
+.info-icon {
+  font-size: 1.05rem;
+}
+
+/* Floating Badges Over Image */
+.hero-visual-frame {
+  position: relative;
+  border-radius: 2rem;
+  overflow: visible;
+}
+
+.overlay-badge {
+  position: absolute;
+  background: white;
+  padding: 0.8rem 1.25rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.overlay-badge:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.badge-left {
+  top: 15%;
+  left: -8%;
+}
+
+.badge-right {
+  bottom: 15%;
+  right: -8%;
+}
+
+.badge-icon-overlay {
+  font-size: 1.5rem;
+}
+
+.badge-title-overlay {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.badge-sub-overlay {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin: 2px 0 0;
+  line-height: 1.2;
+}
+
+@media (max-width: 900px) {
+  .badge-left, .badge-right {
+    display: none;
+  }
+}
+
+/* Stats Counter Row */
+.stats-row-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+  margin: 4.5rem 0 2.5rem;
+  text-align: center;
+}
+
+.stat-card-item h3 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.stat-card-item p {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Glass Premium styles */
+.glass-premium {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 99, 235, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-premium:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(37, 99, 235, 0.25) !important;
+  box-shadow: 0 25px 50px rgba(37, 99, 235, 0.08) !important;
+}
+
+/* FAQ Section */
+.faq-section-wrapper {
+  margin: 6rem 0 4rem;
+}
+
+.faq-grid-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-card-box {
+  background: white;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.faq-card-box:hover {
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 10px 35px rgba(37, 99, 235, 0.04);
+}
+
+.faq-open-style {
+  border-color: #2563eb !important;
+  background: rgba(37, 99, 235, 0.01) !important;
+}
+
+.faq-question-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-question-box h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.faq-arrow-box {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #64748b;
+  line-height: 1;
+}
+
+.faq-answer-box {
+  margin-top: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1.25rem;
+}
+
+.faq-answer-box p {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hero-btn-shadow {
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+}
+
+/* GLOBAL DARK THEME OVERRIDES */
+body.dark-mode {
+  background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.12), transparent 45%),
+              radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.08), transparent 45%),
+              #090d16 !important;
+  color: #f8fafc !important;
+}
+
+/* Typography & General Colors */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+  color: #ffffff !important;
+}
+
+body.dark-mode p, 
+body.dark-mode span, 
+body.dark-mode label, 
+body.dark-mode td, 
+body.dark-mode th {
+  color: #cbd5e1;
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+  background: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .navbar-logout {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+body.dark-mode .navbar-logout:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Hero Section text overrides & glows */
+body.dark-mode .hero-subtext,
+body.dark-mode .home-section-sub {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .ambient-glow {
+  opacity: 0.18 !important;
+}
+
+body.dark-mode .hero-badge {
+  background: rgba(99, 102, 241, 0.15) !important;
+  color: #818cf8 !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+body.dark-mode .hero-gradient-title span {
+  background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Cards & Containers (Glassmorphism Dark) */
+body.dark-mode .feature-card, 
+body.dark-mode .stepper-card, 
+body.dark-mode .product-card, 
+body.dark-mode .auth-card, 
+body.dark-mode .order-card, 
+body.dark-mode .order-customer-info, 
+body.dark-mode .nook-illustration-card,
+body.dark-mode .faq-card-box {
+  background: rgba(30, 41, 59, 0.6) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .feature-card h3,
+body.dark-mode .stepper-card h4,
+body.dark-mode .product-card h3,
+body.dark-mode .auth-card h2,
+body.dark-mode .faq-card-box h4 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .feature-card p,
+body.dark-mode .stepper-card p,
+body.dark-mode .product-card p,
+body.dark-mode .faq-answer-box p {
+  color: #94a3b8 !important;
+}
+
+/* Hover effects for dark cards */
+body.dark-mode .feature-card:hover,
+body.dark-mode .stepper-card:hover,
+body.dark-mode .product-card:hover,
+body.dark-mode .faq-card-box:hover {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.1) !important;
+}
+
+body.dark-mode .glass-premium {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Overlay Badges on Image */
+body.dark-mode .overlay-badge {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .badge-title-overlay {
+  color: #ffffff !important;
+}
+body.dark-mode .badge-sub-overlay {
+  color: #94a3b8 !important;
+}
+
+/* Stats Counter Row */
+body.dark-mode .stats-row-container {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+body.dark-mode .stat-card-item p {
+  color: #94a3b8 !important;
+}
+
+/* Interactive FAQ details */
+body.dark-mode .faq-open-style {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.04) !important;
+}
+
+/* Inputs & Form Controls */
+body.dark-mode .form-input, 
+body.dark-mode input[type="text"], 
+body.dark-mode input[type="email"], 
+body.dark-mode input[type="password"], 
+body.dark-mode select, 
+body.dark-mode textarea {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .form-input:focus, 
+body.dark-mode input:focus, 
+body.dark-mode select:focus, 
+body.dark-mode textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+}
+
+body.dark-mode .form-input::placeholder {
+  color: #64748b !important;
+}
+
+/* Buttons */
+body.dark-mode .button, 
+body.dark-mode .checkout-button,
+body.dark-mode .product-button {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+body.dark-mode .button:hover, 
+body.dark-mode .checkout-button:hover,
+body.dark-mode .product-button:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45) !important;
+}
+
+body.dark-mode .hero-secondary-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+body.dark-mode .hero-secondary-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark-mode .secondary-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+body.dark-mode .secondary-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .upload-dropzone {
+  background: rgba(15, 23, 42, 0.4) !important;
+  border: 2px dashed rgba(255, 255, 255, 0.15) !important;
+  color: #cbd5e1 !important;
+}
+body.dark-mode .upload-dropzone:hover {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.04) !important;
+}
+
+body.dark-mode .file-item {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+body.dark-mode .file-name {
+  color: #ffffff !important;
+}
+
+body.dark-mode .order-items-table th {
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+}
+body.dark-mode .order-items-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .cart-total-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Cart summary styling */
+body.dark-mode .cart-total-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+}
+
+/* Checkout Form Row Grid */
+body.dark-mode .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  body.dark-mode .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* Payment Method Selector Tab Bar */
+body.dark-mode .payment-method-selector {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+body.dark-mode .method-tab {
+  flex: 1;
+  padding: 0.95rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.4);
+  color: #cbd5e1;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+body.dark-mode .method-tab:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(15, 23, 42, 0.6);
+}
+
+body.dark-mode .method-tab.active {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+/* Helper Text */
+body.dark-mode .checkout-helper-text {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.1) !important;
+}
+
+body.dark-mode .glass-premium {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Helper Text */
+body.dark-mode .checkout-helper-text {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.35rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Checkout Item Rows */
+body.dark-mode .checkout-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .checkout-item-row:last-child {
+  border-bottom: none;
+}
+
+/* Overlay Badges on Image */
+body.dark-mode .overlay-badge {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .badge-title-overlay {
+  color: #ffffff !important;
+}
+body.dark-mode .badge-sub-overlay {
+  color: #94a3b8 !important;
+}
+
+/* Stats Counter Row */
+body.dark-mode .stats-row-container {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+body.dark-mode .stat-card-item p {
+  color: #94a3b8 !important;
+}
+
+/* Interactive FAQ details */
+body.dark-mode .faq-open-style {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.04) !important;
+}
+
+/* Inputs & Form Controls */
+body.dark-mode .form-input, 
+body.dark-mode input[type="text"], 
+body.dark-mode input[type="email"], 
+body.dark-mode input[type="password"], 
+body.dark-mode select, 
+body.dark-mode textarea {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .form-input:focus, 
+body.dark-mode input:focus, 
+body.dark-mode select:focus, 
+body.dark-mode textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+}
+
+body.dark-mode .form-input::placeholder {
+  color: #64748b !important;
+}
+
+/* Buttons */
+body.dark-mode .button, 
+body.dark-mode .checkout-button,
+body.dark-mode .product-button {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+body.dark-mode .button:hover, 
+body.dark-mode .checkout-button:hover,
+body.dark-mode .product-button:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45) !important;
+}
+
+body.dark-mode .hero-secondary-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+body.dark-mode .hero-secondary-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark-mode .secondary-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+body.dark-mode .secondary-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .upload-dropzone {
+  background: rgba(15, 23, 42, 0.4) !important;
+  border: 2px dashed rgba(255, 255, 255, 0.15) !important;
+  color: #cbd5e1 !important;
+}
+body.dark-mode .upload-dropzone:hover {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.04) !important;
+}
+
+body.dark-mode .file-item {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+body.dark-mode .file-name {
+  color: #ffffff !important;
+}
+
+body.dark-mode .order-items-table th {
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+}
+body.dark-mode .order-items-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .cart-total-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Cart summary styling */
+body.dark-mode .cart-total-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+}
+
+/* Checkout Form Row Grid */
+body.dark-mode .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  body.dark-mode .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* Payment Method Selector Tab Bar */
+body.dark-mode .payment-method-selector {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+body.dark-mode .method-tab {
+  flex: 1;
+  padding: 0.95rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.4);
+  color: #cbd5e1;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+body.dark-mode .method-tab:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(15, 23, 42, 0.6);
+}
+
+body.dark-mode .method-tab.active {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+/* Helper Text */
+body.dark-mode .checkout-helper-text {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.35rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Checkout Item Rows */
+body.dark-mode .checkout-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .checkout-item-row:last-child {
+  border-bottom: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popCheck {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Light/Dark Image Switcher */
+.dark-only {
+  display: none !important;
+}
+
+body.dark-mode .light-only {
+  display: none !important;
+}
+
+body.dark-mode .dark-only {
+  display: block !important;
+}
+
+/* Order Status Badge & Headers */
+.order-status-badge {
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 1rem;
+}
+
+.order-date {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Scoped Dark Mode Overrides for Cart & Orders */
+body.dark-mode .cart-item {
+  background: rgba(30, 41, 59, 0.6) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .cart-item h3 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .cart-item p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .qty-button {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark-mode .qty-button:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark-mode .qty-button:disabled {
+  opacity: 0.25 !important;
+}
+
+body.dark-mode .remove-button {
+  color: #f87171 !important; /* Brighter red for dark mode */
+}
+
+body.dark-mode .order-status-badge {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+
+body.dark-mode .order-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .order-date {
+  color: #94a3b8 !important;
+}

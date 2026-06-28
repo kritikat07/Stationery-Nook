@@ -8,6 +8,7 @@ import Upload from "./pages/Upload";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Customers from "./pages/Customers";
+import Orders from "./pages/Orders";
 import { CartProvider } from "./components/CartContext";
 import { UserProvider } from "./components/UserContext";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/customers" element={<Customers />} />
+        <Route path="/orders" element={<Orders />} />
         </Routes>
       </CartProvider>
     </UserProvider>
