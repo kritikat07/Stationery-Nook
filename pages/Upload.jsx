@@ -204,7 +204,7 @@ function Upload() {
         </div>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "2.5rem", alignItems: "start" }} className="form-row">
+      <div className="upload-grid">
         {/* Left Side: Upload Dropzone & File List */}
         <div>
           <div
