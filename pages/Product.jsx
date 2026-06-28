@@ -7,9 +7,31 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [addedItems, setAddedItems] = useState({});
+  const [toast, setToast] = useState("");
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    
+    // Temporarily change button to "Added!" state
+    setAddedItems((prev) => ({ ...prev, [product.id]: true }));
+    
+    // Display floating toast alert
+    setToast(`${product.name} added to cart!`);
+    
+    // Clear button state after 1.5 seconds
+    setTimeout(() => {
+      setAddedItems((prev) => ({ ...prev, [product.id]: false }));
+    }, 1500);
+
+    // Clear toast message after 2.5 seconds
+    setTimeout(() => {
+      setToast("");
+    }, 2500);
   };
 
   useEffect(() => {
@@ -291,12 +313,22 @@ function Products() {
             <h3 className="product-name">{product.name}</h3>
             <p className="product-description">{product.description}</p>
             <p className="product-price">₹{product.price}</p>
-            <button onClick={() => addToCart(product)} className="product-button">
-              Add To Cart
+            <button 
+              onClick={() => handleAddToCart(product)} 
+              className={`product-button ${addedItems[product.id] ? 'added' : ''}`}
+              disabled={addedItems[product.id]}
+            >
+              {addedItems[product.id] ? "✓ Added!" : "Add To Cart"}
             </button>
           </div>
         ))}
       </div>
+
+      {toast && (
+        <div className="cart-toast-notification">
+          <span>🛒</span> {toast}
+        </div>
+      )}
     </div>
   );
 }
