@@ -110,7 +110,7 @@ function Checkout() {
       <h2 className="hero-title">Checkout Securely</h2>
       <p className="product-description" style={{ marginBottom: "2rem" }}>Review your student cart items and select your cashless payment gateway simulator.</p>
 
-      <div className="product-grid" style={{ gap: "2rem", gridTemplateColumns: "1.1fr 1.3fr" }}>
+      <div className="checkout-grid">
         {/* Left Side: Summary */}
         <div className="product-card" style={{ display: "flex", flexDirection: "column" }}>
           <h3 className="product-name" style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.08)", paddingBottom: "0.85rem", marginBottom: "1rem" }}>

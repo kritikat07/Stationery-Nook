@@ -1975,5 +1975,32 @@ body.dark-mode .product-image-container svg {
   transform: translateY(-1px);
 }
 
+/* Checkout Responsive Grid & Forms */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1.1fr 1.3fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .payment-method-selector {
+    gap: 0.5rem !important;
+    margin: 1rem 0 !important;
+  }
+
+  .method-tab {
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 0.6rem !important;
+  }
+}
+
 
 
