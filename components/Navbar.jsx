@@ -32,8 +32,10 @@ function Navbar() {
         <Link to="/upload" className="navbar-link">Upload</Link>
         <Link to="/cart" className="navbar-link">Cart{itemCount > 0 ? ` (${itemCount})` : ""}</Link>
         <Link to="/checkout" className="navbar-link">Checkout</Link>
-        {user && (
-          <Link to="/orders" className="navbar-link">Orders</Link>
+        {user?.role === "owner" ? (
+          <Link to="/orders" className="navbar-link">All Orders</Link>
+        ) : (
+          <Link to="/orders" className="navbar-link">My Orders</Link>
         )}
         {user?.role === "owner" && (
           <Link to="/customers" className="navbar-link">Customers</Link>
