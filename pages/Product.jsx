@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../components/CartContext";
 import API from "../utils/api";
 
@@ -326,7 +327,10 @@ function Products() {
 
       {toast && (
         <div className="cart-toast-notification">
-          <span>🛒</span> {toast}
+          <span>🛒 {toast}</span>
+          <Link to="/cart" className="toast-cart-link">
+            View Cart ➔
+          </Link>
         </div>
       )}
     </div>

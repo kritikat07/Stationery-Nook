@@ -1950,5 +1950,26 @@ body.dark-mode .product-image-container svg {
   }
 }
 
+.toast-cart-link {
+  background: rgba(255, 255, 255, 0.22);
+  color: white !important;
+  text-decoration: none;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-left: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.toast-cart-link:hover {
+  background: white;
+  color: #059669 !important;
+  border-color: white;
+  transform: translateY(-1px);
+}
+
 
 
