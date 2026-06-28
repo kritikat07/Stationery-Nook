@@ -1810,5 +1810,50 @@ body.dark-mode .success-message {
   }
 }
 
+/* Product Cards Image Container styling */
+.product-image-container {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.03);
+  border-radius: 1.25rem;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+body.dark-mode .product-image-container {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.product-card:hover .product-image-container {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+body.dark-mode .product-card:hover .product-image-container {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.product-image-container svg {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 8px 16px rgba(15, 23, 42, 0.08));
+}
+
+body.dark-mode .product-image-container svg {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+}
+
+.product-card:hover .product-image-container svg {
+  transform: scale(1.08) rotate(2deg);
+}
+
 
 
