@@ -1609,3 +1609,10 @@ body.dark-mode .order-header {
 body.dark-mode .order-date {
   color: #94a3b8 !important;
 }
+
+body.dark-mode .success-message {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
