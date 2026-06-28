@@ -484,6 +484,123 @@ label {
   accent-color: #2563eb;
 }
 
+/* Checkout Form Layout (Global) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.payment-method-selector {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.method-tab {
+  flex: 1;
+  padding: 0.95rem;
+  border-radius: 0.75rem;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.method-tab:hover {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+}
+
+.method-tab.active {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+.checkout-helper-text {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.35rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.checkout-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.checkout-item-row:last-child {
+  border-bottom: none;
+}
+
+/* Mobile Navbar Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 1rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .navbar h1 {
+    font-size: 1.4rem !important;
+    margin: 0 !important;
+  }
+
+  .navbar-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem 0.75rem !important;
+    width: 100% !important;
+  }
+
+  .navbar-link {
+    font-size: 0.85rem !important;
+    padding: 0.35rem 0.55rem !important;
+    margin: 0 !important;
+  }
+
+  .theme-toggle-btn {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 0.95rem !important;
+    margin: 0 0.15rem !important;
+  }
+  
+  .navbar-user {
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 0.25rem !important;
+    font-size: 0.82rem !important;
+    opacity: 0.85;
+  }
+}
+
+
 @media (max-width: 480px) {
   .navbar {
     padding: 1rem;
