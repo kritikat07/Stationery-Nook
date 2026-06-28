@@ -1855,5 +1855,61 @@ body.dark-mode .product-image-container svg {
   transform: scale(1.08) rotate(2deg);
 }
 
+/* Mobile enhancements for Products catalog on phones */
+@media (max-width: 600px) {
+  .product-grid {
+    gap: 1.15rem !important;
+  }
+  
+  .product-card {
+    padding: 1.15rem !important;
+    border-radius: 1.2rem !important;
+  }
+  
+  .product-image-container {
+    height: 140px !important;
+    border-radius: 0.95rem !important;
+    margin-bottom: 0.95rem !important;
+  }
+  
+  .product-image-container svg {
+    width: 65px !important;
+    height: 65px !important;
+  }
+  
+  .product-name {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .product-description {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.85rem !important;
+  }
+  
+  .product-price {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.95rem !important;
+  }
+  
+  .product-button {
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 0.85rem !important;
+  }
+
+  .page-actions {
+    justify-content: center !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .page-actions .secondary-button {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0.85rem !important;
+  }
+}
+
 
 
