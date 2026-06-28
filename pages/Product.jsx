@@ -15,7 +15,11 @@ function Products() {
   useEffect(() => {
     API.get("/products")
       .then((response) => {
-        setProducts(response.data);
+        if (Array.isArray(response.data)) {
+          setProducts(response.data);
+        } else {
+          setError("Failed to load products: Invalid response format from server.");
+        }
         setLoading(false);
       })
       .catch((err) => {
@@ -52,7 +56,7 @@ function Products() {
       <h2 className="hero-title">Products</h2>
 
       <div className="product-grid">
-        {products.map((product) => (
+        {Array.isArray(products) && products.map((product) => (
           <div key={product.id} className="product-card">
             <div className="product-badge">Stationery</div>
             <h3 className="product-name">{product.name}</h3>
