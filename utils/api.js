@@ -1,9 +1,10 @@
 import axios from "axios";
 
 const getBaseURL = () => {
-  // 1. Allow overriding via Vite environment variables (e.g. for custom staging)
-  if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
+  // 1. Allow overriding via environment variables ONLY if it is a valid absolute HTTP URL
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && envUrl.startsWith("http")) {
+    return envUrl;
   }
   
   // 2. If running on local dev server (5173) or local Tomcat (8080), use relative proxy
