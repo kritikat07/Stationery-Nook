@@ -1894,9 +1894,13 @@ body.dark-mode .product-image-container svg {
   }
   
   .product-button {
-    padding: 0.75rem !important;
-    font-size: 0.9rem !important;
-    border-radius: 0.85rem !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding: 0.85rem !important;
+    font-size: 0.95rem !important;
+    border-radius: 0.95rem !important;
+    box-sizing: border-box !important;
   }
 
   .page-actions {
