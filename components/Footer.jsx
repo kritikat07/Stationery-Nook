@@ -32,8 +32,8 @@ function Footer() {
         <div className="footer-section">
           <h4 className="footer-heading">Store Info</h4>
           <ul className="footer-links font-medium">
-            <li>📍 Block A, Campus Center</li>
-            <li>🕒 Mon - Sat: 9 AM - 7 PM</li>
+            <li>📍 Block A, Campus Center, Abdul Kalam University</li>
+            <li>🕒 Mon - Sat: 9 AM - 10 PM</li>
             <li>✉️ support@stationerynook.com</li>
           </ul>
         </div>
