@@ -261,6 +261,71 @@ function Products() {
             ))}
           </svg>
         );
+      case "desk-lamp":
+        return (
+          <svg viewBox="0 0 100 100" width="80" height="80">
+            <defs>
+              <linearGradient id="lampGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#facc15" />
+                <stop offset="100%" stopColor="#eab308" />
+              </linearGradient>
+            </defs>
+            <path d="M50 40 L25 80 H75 Z" fill="#fef08a" opacity="0.3" />
+            <rect x="35" y="78" width="30" height="6" rx="3" fill="#475569" />
+            <path d="M50 78 V50 C50 45 42 45 42 40" stroke="#64748b" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M35 42 C35 32 49 32 49 42 Z" fill="#334155" transform="rotate(-15 42 40)" />
+            <circle cx="42" cy="43" r="4" fill="#facc15" />
+          </svg>
+        );
+      case "calculator":
+        return (
+          <svg viewBox="0 0 100 100" width="80" height="80">
+            <defs>
+              <linearGradient id="calcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#4b5563" />
+                <stop offset="100%" stopColor="#1f2937" />
+              </linearGradient>
+            </defs>
+            <rect x="28" y="15" width="44" height="70" rx="6" fill="url(#calcGrad)" />
+            <rect x="34" y="22" width="32" height="14" rx="2" fill="#d1fae5" />
+            <line x1="38" y1="29" x2="52" y2="29" stroke="#065f46" strokeWidth="3" strokeLinecap="round" />
+            {[[43, "#ef4444"], [52, "#9ca3af"], [61, "#9ca3af"], [70, "#3b82f6"]].map(([y, color]) => (
+              <g key={y}>
+                <rect x="35" y={y} width="7" height="5" rx="1" fill={color} />
+                <rect x="46" y={y} width="7" height="5" rx="1" fill="#9ca3af" />
+                <rect x="58" y={y} width="7" height="5" rx="1" fill="#9ca3af" />
+              </g>
+            ))}
+          </svg>
+        );
+      case "backpack":
+        return (
+          <svg viewBox="0 0 100 100" width="80" height="80">
+            <defs>
+              <linearGradient id="packGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ec4899" />
+                <stop offset="100%" stopColor="#be185d" />
+              </linearGradient>
+            </defs>
+            <path d="M30 35 C30 22 70 22 70 35 V75 C70 78 68 80 65 80 H35 C32 80 30 78 30 75 Z" fill="url(#packGrad)" />
+            <path d="M36 54 H64 V74 C64 77 62 78 59 78 H41 C38 78 36 77 36 74 Z" fill="#9d174d" />
+            <path d="M42 24 C42 18 58 18 58 24" stroke="#fbcfe8" strokeWidth="3" fill="none" />
+            <path d="M30 42 H70" stroke="#fbcfe8" strokeWidth="1.5" strokeDasharray="3 3" />
+            <path d="M36 58 H64" stroke="#fbcfe8" strokeWidth="1.5" strokeDasharray="3 3" />
+          </svg>
+        );
+      case "scissors":
+        return (
+          <svg viewBox="0 0 100 100" width="80" height="80">
+            <path d="M50 50 L35 20 L40 18 L50 45 Z" fill="#cbd5e1" />
+            <path d="M50 50 L65 20 L60 18 L50 45 Z" fill="#94a3b8" />
+            <circle cx="50" cy="46" r="3" fill="#475569" />
+            <circle cx="42" cy="65" r="12" fill="none" stroke="#2563eb" strokeWidth="5" />
+            <path d="M46 52 L42 56" stroke="#2563eb" strokeWidth="5" />
+            <circle cx="58" cy="65" r="12" fill="none" stroke="#2563eb" strokeWidth="5" />
+            <path d="M54 52 L58 56" stroke="#2563eb" strokeWidth="5" />
+          </svg>
+        );
       default:
         return (
           <svg viewBox="0 0 100 100" width="80" height="80">
